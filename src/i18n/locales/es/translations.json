@@ -1,0 +1,238 @@
+{
+  "workout": {
+    "title": "🏋️ Programa Semanal de Ejercicios",
+    "tip": "Completa todos los ejercicios de cada día antes de pasar al siguiente. Tu progreso se guarda automáticamente.",
+    "completed": "completado",
+    "days": {
+      "day1": {
+        "title": "Día 1: Tren Inferior",
+        "sections": {
+          "warmup": {
+            "title": "Calentamiento (7-10 min)",
+            "exercises": {
+              "greatest": {
+                "title": "Estiramiento Completo",
+                "steps": [
+                  "Codo a empeine",
+                  "Mano hacia afuera",
+                  "Estiramiento de isquiotibiales",
+                  "Rotaciones"
+                ]
+              },
+              "inchworm": {
+                "title": "Caminata Gusano",
+                "steps": [
+                  "Camina con las manos",
+                  "(Opcional) Flexión",
+                  "Regreso controlado"
+                ]
+              }
+            }
+          },
+          "power": {
+            "title": "Potencia/Velocidad",
+            "exercises": {
+              "sled": {
+                "title": "Empuje de Trineo",
+                "sets": "3-4 series",
+                "notes": [
+                  "8 pasos máximo",
+                  "Postura estable (70% de esfuerzo)"
+                ]
+              }
+            }
+          },
+          "strength": {
+            "title": "Fuerza",
+            "exercises": {
+              "goblet": {
+                "title": "Sentadilla Goblet",
+                "sets": "2 series x 5-8 reps",
+                "notes": [
+                  "Control en la bajada",
+                  "Rodillas alineadas"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "day2": {
+        "title": "Día 2: Tren Superior",
+        "sections": {
+          "warmup": {
+            "title": "Calentamiento",
+            "exercises": {
+              "quadruped": {
+                "title": "Paso Cuadrúpedo",
+                "steps": [
+                  "Múltiples planos de movimiento",
+                  "Diferentes velocidades"
+                ]
+              },
+              "karaoke": {
+                "title": "Ejercicio Karaoke",
+                "steps": [
+                  "Rotaciones de cadera",
+                  "Mantén un ritmo fluido"
+                ]
+              },
+              "skater": {
+                "title": "Sentadilla Patinador",
+                "steps": [
+                  "Controlar alineación de rodilla",
+                  "Baja con control"
+                ]
+              }
+            }
+          },
+          "power": {
+            "title": "Potencia/Velocidad",
+            "exercises": {
+              "medball_rotational": {
+                "title": "Lanzamientos Rotacionales con Balón Medicinal",
+                "notes": [
+                  "Potencia de cadera",
+                  "Disociación tren sup/inf"
+                ]
+              },
+              "medball_vertical": {
+                "title": "Lanzamientos Verticales con Balón Medicinal",
+                "notes": [
+                  "Control en la bajada",
+                  "Triple extensión"
+                ]
+              }
+            }
+          },
+          "strength": {
+            "title": "Fuerza",
+            "exercises": {
+              "row": {
+                "title": "Remo Unilateral con Equilibrio",
+                "sets": "2 series x 5-8 reps",
+                "notes": [
+                  "Evita rotación de tronco",
+                  "Control total"
+                ]
+              },
+              "press": {
+                "title": "Press en Hollow Hold",
+                "sets": "2 series x 5-8 reps",
+                "notes": [
+                  "Mantén posición de hollow",
+                  "Estabilidad de hombros"
+                ]
+              },
+              "pushups": {
+                "title": "Flexiones Spider-Man",
+                "sets": "10-20 reps",
+                "notes": [
+                  "Añade anti-rotación",
+                  "Calidad sobre cantidad"
+                ]
+              }
+            }
+          },
+          "conditioning": {
+            "title": "Condicionamiento",
+            "exercises": {
+              "sled": {
+                "title": "Caminatas con Trineo",
+                "notes": [
+                  "Postura erguida",
+                  "Ritmo moderado"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "day3": {
+        "title": "Día 3: Cuerpo Completo",
+        "sections": {
+          "warmup": {
+            "title": "Calentamiento",
+            "exercises": {
+              "sequence": {
+                "title": "Secuencia Variada",
+                "notes": [
+                  "Similar a Día 1, con ligeras variaciones",
+                  "Ajustar a zonas más tensas"
+                ]
+              }
+            }
+          },
+          "power": {
+            "title": "Potencia/Velocidad",
+            "exercises": {
+              "lateral": {
+                "title": "Saltos Laterales con Stick",
+                "sets": "2 series x 5 reps",
+                "notes": [
+                  "Enfatiza la estabilidad al caer",
+                  "Construye control lateral"
+                ]
+              },
+              "medball": {
+                "title": "Trabajo con Balón Medicinal",
+                "notes": [
+                  "Varía el tipo de lanzamientos",
+                  "Calidad sobre cantidad"
+                ]
+              }
+            }
+          },
+          "strength": {
+            "title": "Fuerza",
+            "exercises": {
+              "getups": {
+                "title": "Turkish Get-ups",
+                "sets": "2 series x 3-5 reps/lado",
+                "notes": [
+                  "Transiciones controladas",
+                  "Enfatiza estabilidad"
+                ]
+              },
+              "bridge": {
+                "title": "Puente de Glúteo Unilateral",
+                "sets": "2 series x 20 reps",
+                "notes": [
+                  "Aisla el glúteo",
+                  "Evita rotar la pelvis"
+                ]
+              },
+              "antirotation": {
+                "title": "Press Anti-Rotación con Banda",
+                "sets": "8 reps/lado",
+                "notes": [
+                  "Mantén el core firme",
+                  "Control de la rotación"
+                ]
+              }
+            }
+          },
+          "conditioning": {
+            "title": "Condicionamiento",
+            "exercises": {
+              "rowing": {
+                "title": "Interválicos en Remo",
+                "notes": [
+                  "Postura correcta",
+                  "Técnica estable"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "common": {
+    "videoExample": "Video Ejemplo",
+    "image": "Imagen",
+    "sets": "Series",
+    "reps": "Repeticiones"
+  },
+  "completedMessage": "¡Felicidades! Has completado este día."
+}

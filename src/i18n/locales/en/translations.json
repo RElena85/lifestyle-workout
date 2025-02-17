@@ -1,0 +1,238 @@
+{
+  "workout": {
+    "title": "🏋️ Weekly Workout Program",
+    "tip": "Complete all exercises in each day before moving to the next one. Your progress is automatically saved.",
+    "completed": "completed",
+    "days": {
+      "day1": {
+        "title": "Day 1: Lower Body",
+        "sections": {
+          "warmup": {
+            "title": "Warm-up (7-10 min)",
+            "exercises": {
+              "greatest": {
+                "title": "World's Greatest Stretch",
+                "steps": [
+                  "Elbow to instep",
+                  "Hand to outside",
+                  "Hamstring stretch",
+                  "Rotations"
+                ]
+              },
+              "inchworm": {
+                "title": "Inchworm Walk",
+                "steps": [
+                  "Walk with hands",
+                  "(Optional) Push-up",
+                  "Controlled return"
+                ]
+              }
+            }
+          },
+          "power": {
+            "title": "Power/Speed",
+            "exercises": {
+              "sled": {
+                "title": "Sled Bursts",
+                "sets": "3-4 sets",
+                "notes": [
+                  "8 steps maximum",
+                  "Stable posture (70% effort)"
+                ]
+              }
+            }
+          },
+          "strength": {
+            "title": "Strength",
+            "exercises": {
+              "goblet": {
+                "title": "Goblet Squat",
+                "sets": "2 sets x 5-8 reps",
+                "notes": [
+                  "Control on descent",
+                  "Aligned knees"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "day2": {
+        "title": "Day 2: Upper Body",
+        "sections": {
+          "warmup": {
+            "title": "Warm-up",
+            "exercises": {
+              "quadruped": {
+                "title": "Quadruped Step-Through",
+                "steps": [
+                  "Multiple movement planes",
+                  "Different speeds"
+                ]
+              },
+              "karaoke": {
+                "title": "Karaoke Drill",
+                "steps": [
+                  "Hip rotations",
+                  "Maintain fluid rhythm"
+                ]
+              },
+              "skater": {
+                "title": "Skater Squat",
+                "steps": [
+                  "Control knee alignment",
+                  "Lower with control"
+                ]
+              }
+            }
+          },
+          "power": {
+            "title": "Power/Speed",
+            "exercises": {
+              "medball_rotational": {
+                "title": "Rotational Medicine Ball Throws",
+                "notes": [
+                  "Hip power",
+                  "Upper/lower body dissociation"
+                ]
+              },
+              "medball_vertical": {
+                "title": "Vertical Medicine Ball Throws",
+                "notes": [
+                  "Control on descent",
+                  "Triple extension"
+                ]
+              }
+            }
+          },
+          "strength": {
+            "title": "Strength",
+            "exercises": {
+              "row": {
+                "title": "Single-Arm Balance Row",
+                "sets": "2 sets x 5-8 reps",
+                "notes": [
+                  "Avoid trunk rotation",
+                  "Total control"
+                ]
+              },
+              "press": {
+                "title": "Hollow Hold Press",
+                "sets": "2 sets x 5-8 reps",
+                "notes": [
+                  "Maintain hollow position",
+                  "Shoulder stability"
+                ]
+              },
+              "pushups": {
+                "title": "Spider-Man Push-ups",
+                "sets": "10-20 reps",
+                "notes": [
+                  "Add anti-rotation",
+                  "Quality over quantity"
+                ]
+              }
+            }
+          },
+          "conditioning": {
+            "title": "Conditioning",
+            "exercises": {
+              "sled": {
+                "title": "Sled Walks",
+                "notes": [
+                  "Upright posture",
+                  "Moderate pace"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "day3": {
+        "title": "Day 3: Full Body",
+        "sections": {
+          "warmup": {
+            "title": "Warm-up",
+            "exercises": {
+              "sequence": {
+                "title": "Varied Sequence",
+                "notes": [
+                  "Similar to Day 1, with slight variations",
+                  "Adjust to tighter areas"
+                ]
+              }
+            }
+          },
+          "power": {
+            "title": "Power/Speed",
+            "exercises": {
+              "lateral": {
+                "title": "Lateral Stick Jumps",
+                "sets": "2 sets x 5 reps",
+                "notes": [
+                  "Emphasize landing stability",
+                  "Build lateral control"
+                ]
+              },
+              "medball": {
+                "title": "Medicine Ball Work",
+                "notes": [
+                  "Vary throw types",
+                  "Quality over quantity"
+                ]
+              }
+            }
+          },
+          "strength": {
+            "title": "Strength",
+            "exercises": {
+              "getups": {
+                "title": "Turkish Get-ups",
+                "sets": "2 sets x 3-5 reps/side",
+                "notes": [
+                  "Controlled transitions",
+                  "Emphasize stability"
+                ]
+              },
+              "bridge": {
+                "title": "Single-Leg Glute Bridge",
+                "sets": "2 sets x 20 reps",
+                "notes": [
+                  "Isolate glute",
+                  "Avoid pelvic rotation"
+                ]
+              },
+              "antirotation": {
+                "title": "Anti-Rotation Band Press",
+                "sets": "8 reps/side",
+                "notes": [
+                  "Keep core tight",
+                  "Control rotation"
+                ]
+              }
+            }
+          },
+          "conditioning": {
+            "title": "Conditioning",
+            "exercises": {
+              "rowing": {
+                "title": "Rowing Intervals",
+                "notes": [
+                  "Proper posture",
+                  "Stable technique"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "common": {
+    "videoExample": "Video Example",
+    "image": "Image",
+    "sets": "Sets",
+    "reps": "Reps"
+  },
+  "completedMessage": "Congratulations! You have completed this day."
+}
