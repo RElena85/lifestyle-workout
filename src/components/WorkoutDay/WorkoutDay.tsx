@@ -114,7 +114,7 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
                     sectionKey={sectionKey}
                     onExerciseToggle={handleExerciseToggle} completedSubActivities={{}} onSubActivityToggle={function (exerciseId: string, subActivityId: string): void {
                         throw new Error('Function not implemented.');
-                    } } renderExerciseContent={function (exercise: any, exerciseId: string): JSX.Element {
+                    } } renderExerciseContent={function (_exercise: any): JSX.Element {
                         throw new Error('Function not implemented.');
                     } } />
             );
