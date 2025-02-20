@@ -27,6 +27,7 @@ export interface ExerciseItemProps {
     exercise: Exercise;
     isCompleted: boolean;
     onToggle: () => void;
+    onVideoClick: (videoId: string) => void;
 }
 
 export interface SectionProps {

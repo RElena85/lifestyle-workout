@@ -1,9 +1,35 @@
 import React from 'react';
 import { ExerciseItemProps } from '../types';
 import { workoutDayStyles } from '../styles';
+import { ExternalLink } from 'lucide-react';
 
-export const ExerciseItem: React.FC<ExerciseItemProps> = ({ exercise, isCompleted, onToggle }) => {
-  const styles = workoutDayStyles.exercise;
+export const ExerciseItem: React.FC<ExerciseItemProps> = ({ 
+    exercise,
+    isCompleted,
+    onToggle
+ }) => {
+    const styles = workoutDayStyles.exercise;
+
+    const renderVideoActions = () => {
+        if (!exercise.videoId) return null;
+        
+        const youtubeUrl = `https://www.youtube.com/watch?v=${exercise.videoId}`;
+        
+        return (
+          <div className="flex items-center gap-2 mt-2">
+            <a
+              href={youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-1.5 text-sm text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 rounded-lg transition-colors"
+              title="Open in YouTube"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span>Open in YouTube</span>
+            </a>
+          </div>
+        );
+      };
 
   return (
     <div className={styles.container}>
@@ -38,9 +64,10 @@ export const ExerciseItem: React.FC<ExerciseItemProps> = ({ exercise, isComplete
                 </li>
               ))}
             </ul>
-          )}
-        </div>
-      </label>
+               )}
+               </div>
+             </label>
+             {renderVideoActions()}
     </div>
   );
 };

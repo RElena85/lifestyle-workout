@@ -16,6 +16,7 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
   const [completedExercises, setCompletedExercises] = useState<Set<string>>(new Set());
   const [isLocked, setIsLocked] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const sections = t(`workout.days.${dayKey}.sections`, { returnObjects: true }) as Record<string, any>;
   const totalExercises = getTotalExercises(sections);
@@ -54,9 +55,37 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
     saveExercises(dayKey, newCompletedExercises);
   };
 
+  const renderVideoModal = () => {
+    if (!activeVideo) return null;
+    
+    return (
+      <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+        <div className="bg-gray-800 rounded-lg w-full max-w-3xl overflow-hidden">
+          <div className="relative pb-[56.25%] h-0">
+            <iframe
+              src={`https://www.youtube.com/embed/${activeVideo}`}
+              className="absolute top-0 left-0 w-full h-full"
+              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            />
+          </div>
+          <div className="p-4 flex justify-end">
+            <button
+              onClick={() => setActiveVideo(null)}
+              className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors"
+            >
+              Close Video
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   const progress = calculateProgress(completedExercises.size, totalExercises);
 
   return (
+    <>
     <details 
       className={`${workoutDayStyles.container.base} ${
         isLocked ? workoutDayStyles.container.locked : workoutDayStyles.container.unlocked
@@ -121,5 +150,8 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
         })}
       </div>
     </details>
+    {renderVideoModal()}
+    </>
   );
 };
+

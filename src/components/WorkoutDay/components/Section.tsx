@@ -18,11 +18,13 @@ export const Section: React.FC<SectionProps> = ({
       <div className={styles.exerciseList}>
         {Object.entries(exercises).map(([exerciseKey, exercise]) => (
           <ExerciseItem
-            key={exerciseKey}
-            exercise={exercise}
-            isCompleted={completedExercises.has(`${sectionKey}_${exerciseKey}`)}
-            onToggle={() => onExerciseToggle(sectionKey, exerciseKey)}
-          />
+                key={exerciseKey}
+                exercise={exercise}
+                isCompleted={completedExercises.has(`${sectionKey}_${exerciseKey}`)}
+                onToggle={() => onExerciseToggle(sectionKey, exerciseKey)} 
+                onVideoClick={function (): void {
+                    throw new Error('Function not implemented.');
+                } }          />
         ))}
       </div>
     </div>
