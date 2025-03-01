@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/lifestyle/workout/', // This is crucial for proper asset loading
+  base: '/lifestyle-workout/', // This is crucial for proper asset loading
   // resolve: {
   //   alias: {
   //     '@': path.resolve(__dirname, './src'),
