@@ -3,6 +3,12 @@
     "title": "🏋️ Weekly Workout Program",
     "tip": "Complete all exercises in each day before moving to the next one. Your progress is automatically saved.",
     "completed": "completed",
+    "start": "Start Workout",
+    "reset": "Reset Progress",
+    "buttonBar": {
+      "stats": "Stats",
+      "settings": "Settings"
+    },
     "days": {
       "day1": {
         "title": "Day 1: Lower Body",

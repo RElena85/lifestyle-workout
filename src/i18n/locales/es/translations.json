@@ -3,6 +3,12 @@
     "title": "🏋️ Programa Semanal de Ejercicios",
     "tip": "Completa todos los ejercicios de cada día antes de pasar al siguiente. Tu progreso se guarda automáticamente.",
     "completed": "completado",
+    "start": "Comenzar el entrenamiento",
+    "reset": "Reiniciar el progreso",
+    "buttonBar": {
+      "stats": "Estadisticas",
+      "settings": "Configuración"
+    },
     "days": {
       "day1": {
         "title": "Día 1: Tren Inferior",

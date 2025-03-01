@@ -36,6 +36,8 @@ export interface SectionProps {
     completedExercises: Set<string>;
     completedSubActivities: Record<string, Set<string>>;
     sectionKey: string;
+    currentExercise: string | null;
+    workoutStarted: boolean;
     onExerciseToggle: (sectionKey: string, exerciseKey: string) => void;
     onSubActivityToggle: (exerciseId: string, subActivityId: string) => void;
     renderExerciseContent: (exercise: any, exerciseId: string) => JSX.Element;

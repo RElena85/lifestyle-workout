@@ -1,10 +1,12 @@
+// components/LanguageSwitcher/LanguageSwitcher.tsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { LanguageSwitcherProps } from './types';
 import { LANGUAGE_MAP, ARIA_LABEL } from './constants';
-import { buttonStyles } from './styles';
+import { standardButtonStyles } from '../ButtonsBar/standardButtonStyles';
+import { Globe } from 'lucide-react'; // Added icon for consistency
 
-export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className }) => {
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = () => {
   const { i18n } = useTranslation();
 
   const currentLanguage = (i18n.language as keyof typeof LANGUAGE_MAP) in LANGUAGE_MAP
@@ -20,9 +22,10 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className })
     <button
       onClick={toggleLanguage}
       aria-label={ARIA_LABEL}
-      className={`${buttonStyles} ${className || ''}`}
+      className={standardButtonStyles}
     >
-      {LANGUAGE_MAP[currentLanguage].label}
+      <Globe className="w-5 h-5" />
+      <span>{LANGUAGE_MAP[currentLanguage].label}</span>
     </button>
   );
 };
