@@ -13,15 +13,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./src
+        working-directory: ./
 
       - name: Build
         run: npm run build
-        working-directory: ./src
+        working-directory: ./
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: ./src/dist
+          folder: ./dist
           token: ${{ secrets.git_pages }}
