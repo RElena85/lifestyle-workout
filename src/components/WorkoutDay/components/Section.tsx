@@ -1,32 +1,55 @@
 import React from 'react';
-import { SectionProps } from '../types';
-import { ExerciseItem } from './ExerciseItem';
-import { workoutDayStyles } from '../styles';
+import { Card, CardHeader, CardTitle, CardContent } from '../../ui/card';
+import { Button } from '../../ui/button';
+
+export interface SectionProps {
+  title: string;
+  exercises: Record<string, { name: string }>;
+  completedExercises: Set<string>;
+  sectionKey: string;
+  onExerciseToggle: (sectionKey: string, exerciseKey: string) => void;
+  currentExercise: string | null;
+  workoutStarted: boolean;
+  completedSubActivities: Record<string, any>;
+  onSubActivityToggle: (exerciseId: string, subActivityId: string) => void;
+  renderExerciseContent: (exercise: any) => JSX.Element;
+}
 
 export const Section: React.FC<SectionProps> = ({
   title,
   exercises,
   completedExercises,
   sectionKey,
-  onExerciseToggle
+  onExerciseToggle,
+  currentExercise,
+  workoutStarted,
+  completedSubActivities,
+  onSubActivityToggle,
+  renderExerciseContent,
 }) => {
-  const styles = workoutDayStyles.section;
-
   return (
-    <div className={styles.container}>
-      <h3 className={styles.title}>{title}</h3>
-      <div className={styles.exerciseList}>
-        {Object.entries(exercises).map(([exerciseKey, exercise]) => (
-          <ExerciseItem
-                key={exerciseKey}
-                exercise={exercise}
-                isCompleted={completedExercises.has(`${sectionKey}_${exerciseKey}`)}
-                onToggle={() => onExerciseToggle(sectionKey, exerciseKey)} 
-                onVideoClick={function (): void {
-                    throw new Error('Function not implemented.');
-                } }          />
-        ))}
-      </div>
-    </div>
+    <Card className="mb-4">
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        {Object.entries(exercises).map(([exerciseKey, exercise]) => {
+          const exerciseId = `${sectionKey}_${exerciseKey}`;
+          return (
+            <div key={exerciseKey} className="mb-2">
+              <Button
+                onClick={() => onExerciseToggle(sectionKey, exerciseKey)}
+                variant={completedExercises.has(exerciseId) ? 'destructive' : 'default'}
+                size="sm"
+                className="mb-1"
+              >
+                {exercise.name}
+              </Button>
+              {renderExerciseContent(exercise)}
+            </div>
+          );
+        })}
+      </CardContent>
+    </Card>
   );
 };
