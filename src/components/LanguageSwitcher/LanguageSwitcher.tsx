@@ -5,6 +5,7 @@ import { LanguageSwitcherProps } from './types';
 import { LANGUAGE_MAP, ARIA_LABEL } from './constants';
 import { standardButtonStyles } from '../ButtonsBar/standardButtonStyles';
 import { Globe } from 'lucide-react'; // Added icon for consistency
+import { Button } from '../ui/button';
 
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = () => {
   const { i18n } = useTranslation();
@@ -19,13 +20,13 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = () => {
   };
 
   return (
-    <button
+    <Button
       onClick={toggleLanguage}
       aria-label={ARIA_LABEL}
       className={standardButtonStyles}
     >
       <Globe className="w-5 h-5" />
       <span>{LANGUAGE_MAP[currentLanguage].label}</span>
-    </button>
+    </Button>
   );
 };
