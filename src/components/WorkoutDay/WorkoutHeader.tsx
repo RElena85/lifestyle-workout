@@ -2,6 +2,7 @@ import React from 'react';
 import { ChevronDown, ChevronUp, Play } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { workoutDayStyles } from './styles';
+import { Button } from '../ui/button';
 
 interface WorkoutHeaderProps {
   isOpen: boolean;
@@ -32,17 +33,19 @@ export const WorkoutHeader: React.FC<WorkoutHeaderProps> = ({
     }`}>
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <button
+        <Button
             onClick={onToggleOpen}
-            className="p-1 hover:bg-gray-100 rounded"
+            variant="default"
+            size="square"
             disabled={isLocked}
+            className="p-1 hover:bg-gray-100 rounded"
           >
             {isOpen ? (
               <ChevronUp className="h-5 w-5" />
             ) : (
               <ChevronDown className="h-5 w-5" />
             )}
-          </button>
+          </Button>
           <h2 className={workoutDayStyles.title}>{t(`workout.days.${dayKey}.title`)}</h2>
           {isLocked && (
             <span className="text-yellow-500">
