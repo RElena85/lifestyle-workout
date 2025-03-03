@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Section } from './components/Section';
-import { VideoModal } from './components/VideoModal';
 import { WorkoutHeader } from './WorkoutHeader.tsx';
 import { WorkoutDayProps } from './types';
 import { workoutDayStyles } from './styles';
@@ -117,7 +116,6 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
           </div>
         )}
       </div>
-      <VideoModal videoId={activeVideo} onClose={() => setActiveVideo(null)} />
     </>
   );
 };
