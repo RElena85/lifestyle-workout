@@ -1,40 +1,41 @@
-// components/ButtonBar/ButtonBar.tsx
 import React from 'react';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import { WorkoutController } from '../WorkoutController/WorkoutController';
-import { Settings, BarChart2 } from 'lucide-react';
-import { standardButtonStyles } from './standardButtonStyles';
+import { Button } from '../ui/button';
 
 interface ButtonBarProps {
   className?: string;
 }
 
+/**
+ * ButtonsBar
+ *
+ * Renders a top bar with various controls using shadcn's Button components.
+ * The bar is fixed at the top at all times. A spacer is added in the overall layout (or here)
+ * so that the fixed bar does not overlap the app title.
+ *
+ * In this example, we assume the bar has a fixed height of h-16 (4rem).
+ */
 export const ButtonsBar: React.FC<ButtonBarProps> = ({ className }) => {
   return (
-    <div className={`${className} bg-gray-800/50 backdrop-blur-sm rounded-lg p-2 shadow-lg`}>
-      <div className="flex items-center gap-3">
-        <WorkoutController />
-        <div className="w-px h-6 bg-gray-600" />
-        <button 
-          className={standardButtonStyles}
-          onClick={() => console.log('Stats clicked')}
-          aria-label="View Statistics"
-        >
-          <BarChart2 className="w-5 h-5" />
-          <span>Stats</span>
-        </button>
-        <div className="w-px h-6 bg-gray-600" />
-        <LanguageSwitcher />
-        <div className="w-px h-6 bg-gray-600" />
-        <button 
-          className={standardButtonStyles}
-          onClick={() => console.log('Settings clicked')}
-          aria-label="Settings"
-        >
-          <Settings className="w-5 h-5" />
-          <span>Settings</span>
-        </button>
+    <>
+      {/* Spacer element to avoid content overlap (change h-16 if your header height differs) */}
+      <div className="h-16" />
+      <div 
+        className={`
+          ${className} 
+          bg-gray-800/50 backdrop-blur-sm rounded-lg p-2 shadow-lg 
+          fixed top-0 inset-x-0 z-50
+        `}
+      >
+        <div className="flex items-center gap-3 justify-center">
+          <WorkoutController />
+          <div className="w-px h-6 bg-gray-600" />
+          <LanguageSwitcher />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
+
+export default ButtonsBar;
