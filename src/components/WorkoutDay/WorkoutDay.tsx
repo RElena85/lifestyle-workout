@@ -17,7 +17,6 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
   const [completedExercises, setCompletedExercises] = useState<Set<string>>(new Set());
   const [isLocked, setIsLocked] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [currentExercise, setCurrentExercise] = useState<string | null>(null);
   const [workoutStarted, setWorkoutStarted] = useState(false);
 
