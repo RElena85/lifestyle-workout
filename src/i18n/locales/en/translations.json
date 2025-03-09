@@ -34,6 +34,33 @@
                   "(Optional) Push-up",
                   "Controlled return"
                 ]
+              },
+              "M-Drill": {
+                "title": "M-Drill",
+                "videoId": "ZY2ji_Ho0dA",
+                "steps": [
+                  "Focus on deceleration",
+                  "Quick transitions",
+                  "Control over speed"
+                ]
+              },
+              "ReachRoll": {
+                "title": "Reach and Roll",
+                "videoId": "ZY2ji_Ho0dA",
+                "steps": [
+                  "Keep feet planted",
+                  "Emphasize hip opening",
+                  "Add ground contact variation"
+                ]
+              },
+              "SlenderLateralDrop": {
+                "title": "Slender Lateral Drop",
+                "videoId": "ZY2ji_Ho0dA",
+                "steps": [
+                  "Smooth, rhythmic movement",
+                  "Focus on eccentric control",
+                  "Use metronome if helpful"
+                ]
               }
             }
           },
@@ -48,6 +75,26 @@
                   "8 steps maximum",
                   "Stable posture (70% effort)"
                 ]
+              },
+              "Slam": {
+                "title": "Sled Bursts",
+                "videoId": "J_V-0QZvwiM",
+                "sets": "2 sets of 5",
+                "notes": [
+                  "Full extension through toes",
+                  "Optional vertical jump",
+                  "Rest between sets"
+                ]
+              },
+              "Skips": {
+                "title": "Power Skips",
+                "videoId": "J_V-0QZvwiM",
+                "sets": "2 sets of 5",
+                "notes": [
+                  "One step between skips",
+                  "Height over distance",
+                  "Focus on rhythm"
+                ]
               }
             }
           },
@@ -60,6 +107,45 @@
                 "notes": [
                   "Control on descent",
                   "Aligned knees"
+                ]
+              },
+              "Deadlift": {
+                "title": "Single-leg Romanian Deadlift",
+                "sets": "2 sets x 5-8 reps",
+                "notes": [
+                  "Focus on hip hinge",
+                  "Maintain neutral spine"
+                ]
+              },
+              "Curls": {
+                "title": "Nordic Curls",
+                "sets": "5 total",
+                "notes": [
+                  "3 with hips extended",
+                  "2 with slight bend",
+                  "Follow with cat-cow stretch"
+                ]
+              },
+              "Press": {
+                "title": "Rotational Press",
+                "sets": "2 sets x 5-8 reps",
+                "notes": [
+                  "Focus on smooth movement",
+                  "Full hip rotation",
+                  "Moderate weight"
+                ]
+              }
+            }
+          },
+          "conditioning": {
+            "title": "Conditioning",
+            "exercises": {
+              "rowing": {
+                "title": "bike",
+                "notes": [
+                  "8-minute bike for max distance",
+                  "Maintain posture throughout",
+                  "Reduce intensity if form breaks"
                 ]
               }
             }

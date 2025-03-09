@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import './i18n/config';
 import { WorkoutDay } from './components/WorkoutDay';
 import { ButtonsBar } from './components/ButtonsBar/ButtonsBar';
+import React from 'react';
 
 function App() {
   const { t } = useTranslation();
