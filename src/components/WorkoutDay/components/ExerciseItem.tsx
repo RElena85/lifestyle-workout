@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ExerciseItemProps } from '../types';
+import { Exercise, ExerciseItemProps } from '../types';
 import { workoutDayStyles } from '../styles';
 import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardFooter } from '../../ui/card';
@@ -34,7 +34,7 @@ function useMediaQuery(query: string): boolean {
  * On small screens, if the exercise is marked as completed, the entire card gets collapsed by default.
  * The parent component (e.g., WorkoutDay) is responsible for rendering a day-level progress bar.
  */
-export const ExerciseItem: React.FC<ExerciseItemProps> = ({ 
+export const ExerciseItem: React.FC<ExerciseItemProps> = ({
   exercise,
   isCompleted,
   onToggle
@@ -61,31 +61,16 @@ export const ExerciseItem: React.FC<ExerciseItemProps> = ({
   // Render video actions with a button if a video is available.
   const renderVideoActions = () => {
     if (!exercise.videoId) return null;
-    const youtubeUrl = `https://www.youtube.com/watch?v=${exercise.videoId}`;
-    return (
-      <CardFooter className="flex items-center gap-1 mt-1 px-3 py-1.5">
-        <Button
-          asChild
-          variant="default"
-          size="sm"
-          className="inline-flex items-center gap-2 px-3 py-1.5 text-sm text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 rounded-lg transition-colors"
-          title="Open in YouTube"
-        >
-          <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
-            <ExternalLink className="w-4 h-4" />
-            <span>Open in YouTube</span>
-          </a>
-        </Button>
-      </CardFooter>
-    );
+
+    return VideoLinkComponent({ youtubeUrl: PrepareUrlWHenShort(exercise) });
   };
 
   return (
     <Card className={styles.container}>
       <CardContent>
         <label className="flex items-start space-x-3 cursor-pointer">
-          <input 
-            type="checkbox" 
+          <input
+            type="checkbox"
             checked={isCompleted}
             onChange={onToggle}
             className={styles.checkbox}
@@ -133,6 +118,32 @@ export const ExerciseItem: React.FC<ExerciseItemProps> = ({
       {isExpanded && renderVideoActions()}
     </Card>
   );
+
+  function PrepareUrlWHenShort(exercise: Exercise) {
+    const youtubeUrl = `https://www.youtube.com/watch?v=${exercise.videoId}`;
+
+    if (exercise.videoId != "shorts") return youtubeUrl;
+
+    return `https://www.youtube.com/shorts/${exercise.videoId}`;
+  }
+
+  function VideoLinkComponent({ youtubeUrl }: { youtubeUrl: string; }): React.JSX.Element {
+    return <CardFooter className="flex items-center gap-1 mt-1 px-3 py-1.5">
+      <Button
+        asChild
+        variant="default"
+        size="sm"
+        className="inline-flex items-center gap-2 px-3 py-1.5 text-sm text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 rounded-lg transition-colors"
+        title="Open in YouTube"
+      >
+        <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
+          <ExternalLink className="w-4 h-4" />
+          <span>Open in YouTube</span>
+        </a>
+      </Button>
+    </CardFooter>;
+  }
+
 };
 
 export default ExerciseItem;

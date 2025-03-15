@@ -37,7 +37,7 @@
               },
               "M-Drill": {
                 "title": "M-Drill",
-                "videoId": "ZY2ji_Ho0dA",
+                "videoId": "RIptNUg9fY8",
                 "steps": [
                   "Focus on deceleration",
                   "Quick transitions",
@@ -46,7 +46,7 @@
               },
               "ReachRoll": {
                 "title": "Reach and Roll",
-                "videoId": "ZY2ji_Ho0dA",
+                "videoId": "aK8YQ0YqEY4",
                 "steps": [
                   "Keep feet planted",
                   "Emphasize hip opening",
@@ -69,7 +69,7 @@
             "exercises": {
               "sled": {
                 "title": "Sled Bursts",
-                "videoId": "J_V-0QZvwiM",
+                "videoId": "QkqlFxxBTko",
                 "sets": "3-4 sets",
                 "notes": [
                   "8 steps maximum",
@@ -77,8 +77,8 @@
                 ]
               },
               "Slam": {
-                "title": "Sled Bursts",
-                "videoId": "J_V-0QZvwiM",
+                "title": "Ball Slam",
+                "videoId": "shorts/cgKqNn90MEo",
                 "sets": "2 sets of 5",
                 "notes": [
                   "Full extension through toes",
@@ -88,7 +88,7 @@
               },
               "Skips": {
                 "title": "Power Skips",
-                "videoId": "J_V-0QZvwiM",
+                "videoId": "S8-9NEETWfA",
                 "sets": "2 sets of 5",
                 "notes": [
                   "One step between skips",
@@ -103,6 +103,7 @@
             "exercises": {
               "goblet": {
                 "title": "Goblet Squat",
+                "videoId": "shorts/lRYBbchqxtI",
                 "sets": "2 sets x 5-8 reps",
                 "notes": [
                   "Control on descent",
@@ -111,6 +112,7 @@
               },
               "Deadlift": {
                 "title": "Single-leg Romanian Deadlift",
+                "videoId": "J0bEKhnP-Mw",
                 "sets": "2 sets x 5-8 reps",
                 "notes": [
                   "Focus on hip hinge",
@@ -119,6 +121,7 @@
               },
               "Curls": {
                 "title": "Nordic Curls",
+                "videoId": "Wo746janD2E",
                 "sets": "5 total",
                 "notes": [
                   "3 with hips extended",
@@ -128,6 +131,7 @@
               },
               "Press": {
                 "title": "Rotational Press",
+                "videoId": "bZRXZZXOEdQ",
                 "sets": "2 sets x 5-8 reps",
                 "notes": [
                   "Focus on smooth movement",
@@ -142,6 +146,7 @@
             "exercises": {
               "rowing": {
                 "title": "bike",
+                "videoId": "",
                 "notes": [
                   "8-minute bike for max distance",
                   "Maintain posture throughout",
@@ -160,6 +165,7 @@
             "exercises": {
               "quadruped": {
                 "title": "Quadruped Step-Through",
+                "videoId": "6HoZdV2G1LA",
                 "steps": [
                   "Multiple movement planes",
                   "Different speeds"
@@ -167,6 +173,7 @@
               },
               "karaoke": {
                 "title": "Karaoke Drill",
+                "videoId": "shorts/nzuuSoJvJfo",
                 "steps": [
                   "Hip rotations",
                   "Maintain fluid rhythm"
@@ -174,6 +181,7 @@
               },
               "skater": {
                 "title": "Skater Squat",
+                "videoId": "xyn1-o3NkLg",
                 "steps": [
                   "Control knee alignment",
                   "Lower with control"
@@ -186,6 +194,7 @@
             "exercises": {
               "medball_rotational": {
                 "title": "Rotational Medicine Ball Throws",
+                "videoId": "shorts/lAMFHgnxFxE",
                 "notes": [
                   "Hip power",
                   "Upper/lower body dissociation"
@@ -193,6 +202,7 @@
               },
               "medball_vertical": {
                 "title": "Vertical Medicine Ball Throws",
+                "videoId": "",
                 "notes": [
                   "Control on descent",
                   "Triple extension"
@@ -205,6 +215,7 @@
             "exercises": {
               "row": {
                 "title": "Single-Arm Balance Row",
+                "videoId": "",
                 "sets": "2 sets x 5-8 reps",
                 "notes": [
                   "Avoid trunk rotation",
@@ -213,6 +224,7 @@
               },
               "press": {
                 "title": "Hollow Hold Press",
+                "videoId": "",
                 "sets": "2 sets x 5-8 reps",
                 "notes": [
                   "Maintain hollow position",
@@ -221,6 +233,7 @@
               },
               "pushups": {
                 "title": "Spider-Man Push-ups",
+                "videoId": "",
                 "sets": "10-20 reps",
                 "notes": [
                   "Add anti-rotation",
@@ -234,6 +247,7 @@
             "exercises": {
               "sled": {
                 "title": "Sled Walks",
+                "videoId": "",
                 "notes": [
                   "Upright posture",
                   "Moderate pace"
@@ -251,6 +265,7 @@
             "exercises": {
               "sequence": {
                 "title": "Varied Sequence",
+                "videoId": "",
                 "notes": [
                   "Similar to Day 1, with slight variations",
                   "Adjust to tighter areas"
@@ -263,6 +278,7 @@
             "exercises": {
               "lateral": {
                 "title": "Lateral Stick Jumps",
+                "videoId": "",
                 "sets": "2 sets x 5 reps",
                 "notes": [
                   "Emphasize landing stability",
@@ -271,6 +287,7 @@
               },
               "medball": {
                 "title": "Medicine Ball Work",
+                "videoId": "",
                 "notes": [
                   "Vary throw types",
                   "Quality over quantity"
@@ -283,6 +300,7 @@
             "exercises": {
               "getups": {
                 "title": "Turkish Get-ups",
+                "videoId": "",
                 "sets": "2 sets x 3-5 reps/side",
                 "notes": [
                   "Controlled transitions",
@@ -291,6 +309,7 @@
               },
               "bridge": {
                 "title": "Single-Leg Glute Bridge",
+                "videoId": "",
                 "sets": "2 sets x 20 reps",
                 "notes": [
                   "Isolate glute",
@@ -299,6 +318,7 @@
               },
               "antirotation": {
                 "title": "Anti-Rotation Band Press",
+                "videoId": "",
                 "sets": "8 reps/side",
                 "notes": [
                   "Keep core tight",
@@ -312,6 +332,7 @@
             "exercises": {
               "rowing": {
                 "title": "Rowing Intervals",
+                "videoId": "",
                 "notes": [
                   "Proper posture",
                   "Stable technique"
@@ -322,12 +343,5 @@
         }
       }
     }
-  },
-  "common": {
-    "videoExample": "Video Example",
-    "image": "Image",
-    "sets": "Sets",
-    "reps": "Reps"
-  },
-  "completedMessage": "Congratulations! You have completed this day."
+  }
 }

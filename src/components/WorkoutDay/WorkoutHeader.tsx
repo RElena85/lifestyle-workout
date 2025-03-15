@@ -21,10 +21,7 @@ export const WorkoutHeader: React.FC<WorkoutHeaderProps> = ({
   isOpen,
   isLocked,
   dayKey,
-  workoutStarted,
   progress,
-  totalExercises,
-  completedExercises,
   onToggleOpen,
 }) => {
   const { t } = useTranslation();
