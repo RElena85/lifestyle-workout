@@ -122,9 +122,9 @@ export const ExerciseItem: React.FC<ExerciseItemProps> = ({
   function PrepareUrlWHenShort(exercise: Exercise) {
     const youtubeUrl = `https://www.youtube.com/watch?v=${exercise.videoId}`;
 
-    if (exercise.videoId != "shorts") return youtubeUrl;
+    if (!exercise.videoId || !exercise.videoId.includes("shorts")) return youtubeUrl;
 
-    return `https://www.youtube.com/shorts/${exercise.videoId}`;
+    return `https://www.youtube.com/${exercise.videoId}`;
   }
 
   function VideoLinkComponent({ youtubeUrl }: { youtubeUrl: string; }): React.JSX.Element {

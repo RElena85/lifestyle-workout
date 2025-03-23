@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Section } from './components/Section';
 import { WorkoutHeader } from './WorkoutHeader.tsx';
-import { WorkoutDayProps } from './types';
 import { workoutDayStyles } from './styles';
 import {
   calculateProgress,
@@ -12,7 +11,12 @@ import {
   isDayLocked
 } from './utils';
 
-export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
+export interface WorkoutDayProps {
+  dayKey: string;
+  onOpenNextDay?: (dayKey: string) => void;
+}
+
+export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey, onOpenNextDay }) => {
   const { t } = useTranslation();
   const [completedExercises, setCompletedExercises] = useState<Set<string>>(new Set());
   const [isLocked, setIsLocked] = useState(true);
@@ -25,7 +29,9 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
   const progress = calculateProgress(completedExercises.size, totalExercises);
 
   useEffect(() => {
+    // Recalculate the locked state on mount
     const locked = isDayLocked(dayKey);
+    console.log(`Day ${dayKey} locked:`, locked);
     setIsLocked(locked);
     
     if (!locked && dayKey === 'day1' && !localStorage.getItem(`${dayKey}_started`)) {
@@ -35,12 +41,14 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
   }, [dayKey]);
 
   useEffect(() => {
-    if (completedExercises.size === totalExercises) {
+    if (completedExercises.size === totalExercises && totalExercises > 0) {
+      console.log(`Day ${dayKey} completed. Completed ${completedExercises.size} out of ${totalExercises}`);
       localStorage.setItem(`${dayKey}_completed`, 'true');
       setWorkoutStarted(false);
       setCurrentExercise(null);
+      setIsOpen(false); // Collapse the current day 
     }
-  }, [completedExercises, dayKey, totalExercises]);
+  }, [completedExercises, dayKey, totalExercises, onOpenNextDay]);
 
   useEffect(() => {
     setCompletedExercises(loadSavedExercises(dayKey));
@@ -61,18 +69,21 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
 
   const handleExerciseToggle = (sectionKey: string, exerciseKey: string) => {
     const exerciseId = `${sectionKey}_${exerciseKey}`;
-    
-    if (workoutStarted && exerciseId !== currentExercise) {
-      return;
-    }
-
+    if (workoutStarted && exerciseId !== currentExercise) return;
+  
     const newCompletedExercises = new Set(completedExercises);
-    if (!newCompletedExercises.has(exerciseId)) {
-      newCompletedExercises.add(exerciseId);
-      setCompletedExercises(newCompletedExercises);
-      saveExercises(dayKey, newCompletedExercises);
-      findAndSetNextExercise(newCompletedExercises);
-    }
+    if (newCompletedExercises.has(exerciseId)) return;
+    
+    newCompletedExercises.add(exerciseId);
+    setCompletedExercises(newCompletedExercises);
+    saveExercises(dayKey, newCompletedExercises);
+    findAndSetNextExercise(newCompletedExercises);
+  };
+  
+  // Function to manually toggle the open/closed state
+  const toggleOpen = () => {
+    if (isLocked) return;    
+    setIsOpen(true);
   };
 
   return (
@@ -88,7 +99,7 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
           progress={progress}
           totalExercises={totalExercises}
           completedExercises={completedExercises}
-          onToggleOpen={() => !isLocked && setIsOpen(!isOpen)}
+          onToggleOpen={toggleOpen}
         />
 
         {isOpen && (
@@ -118,3 +129,5 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey }) => {
     </>
   );
 };
+
+export default WorkoutDay;
