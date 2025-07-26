@@ -1,0 +1,160 @@
+# Page snapshot
+
+```yaml
+- button "Start Workout":
+  - img
+  - text: Start Workout
+- button "Toggle language":
+  - img
+  - text: 🇪🇸 Español
+- heading "🏋️ Weekly Workout Program" [level=1]
+- blockquote: Complete all exercises in each day before moving to the next one. Your progress is automatically saved.
+- button:
+  - img
+- 'heading "Day 1: Lower Body" [level=2]'
+- text: 0% completed Warm-up (7-10 min)
+- checkbox "World's Greatest Stretch • Elbow to instep • Hand to outside • Hamstring stretch • Rotations"
+- heading "World's Greatest Stretch" [level=4]
+- list:
+  - listitem: • Elbow to instep
+  - listitem: • Hand to outside
+  - listitem: • Hamstring stretch
+  - listitem: • Rotations
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/watch?v=-CiWQ2IvY34
+  - img
+  - text: Open in YouTube
+- checkbox "Inchworm Walk • Walk with hands • (Optional) Push-up • Controlled return"
+- heading "Inchworm Walk" [level=4]
+- list:
+  - listitem: • Walk with hands
+  - listitem: • (Optional) Push-up
+  - listitem: • Controlled return
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/watch?v=ZY2ji_Ho0dA
+  - img
+  - text: Open in YouTube
+- checkbox "M-Drill • Focus on deceleration • Quick transitions • Control over speed"
+- heading "M-Drill" [level=4]
+- list:
+  - listitem: • Focus on deceleration
+  - listitem: • Quick transitions
+  - listitem: • Control over speed
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/watch?v=RIptNUg9fY8
+  - img
+  - text: Open in YouTube
+- checkbox "Reach and Roll • Keep feet planted • Emphasize hip opening • Add ground contact variation"
+- heading "Reach and Roll" [level=4]
+- list:
+  - listitem: • Keep feet planted
+  - listitem: • Emphasize hip opening
+  - listitem: • Add ground contact variation
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/watch?v=aK8YQ0YqEY4
+  - img
+  - text: Open in YouTube
+- checkbox "Slender Lateral Drop • Smooth, rhythmic movement • Focus on eccentric control • Use metronome if helpful"
+- heading "Slender Lateral Drop" [level=4]
+- list:
+  - listitem: • Smooth, rhythmic movement
+  - listitem: • Focus on eccentric control
+  - listitem: • Use metronome if helpful
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/watch?v=ZY2ji_Ho0dA
+  - img
+  - text: Open in YouTube
+- text: Power/Speed
+- checkbox "Sled Bursts 3-4 sets ℹ 8 steps maximum ℹ Stable posture (70% effort)"
+- heading "Sled Bursts" [level=4]
+- paragraph: 3-4 sets
+- list:
+  - listitem: ℹ 8 steps maximum
+  - listitem: ℹ Stable posture (70% effort)
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/watch?v=QkqlFxxBTko
+  - img
+  - text: Open in YouTube
+- checkbox "Ball Slam 2 sets of 5 ℹ Full extension through toes ℹ Optional vertical jump ℹ Rest between sets"
+- heading "Ball Slam" [level=4]
+- paragraph: 2 sets of 5
+- list:
+  - listitem: ℹ Full extension through toes
+  - listitem: ℹ Optional vertical jump
+  - listitem: ℹ Rest between sets
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/shorts/cgKqNn90MEo
+  - img
+  - text: Open in YouTube
+- checkbox "Power Skips 2 sets of 5 ℹ One step between skips ℹ Height over distance ℹ Focus on rhythm"
+- heading "Power Skips" [level=4]
+- paragraph: 2 sets of 5
+- list:
+  - listitem: ℹ One step between skips
+  - listitem: ℹ Height over distance
+  - listitem: ℹ Focus on rhythm
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/watch?v=S8-9NEETWfA
+  - img
+  - text: Open in YouTube
+- text: Strength
+- checkbox "Goblet Squat 2 sets x 5-8 reps ℹ Control on descent ℹ Aligned knees"
+- heading "Goblet Squat" [level=4]
+- paragraph: 2 sets x 5-8 reps
+- list:
+  - listitem: ℹ Control on descent
+  - listitem: ℹ Aligned knees
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/shorts/lRYBbchqxtI
+  - img
+  - text: Open in YouTube
+- checkbox "Single-leg Romanian Deadlift 2 sets x 5-8 reps ℹ Focus on hip hinge ℹ Maintain neutral spine"
+- heading "Single-leg Romanian Deadlift" [level=4]
+- paragraph: 2 sets x 5-8 reps
+- list:
+  - listitem: ℹ Focus on hip hinge
+  - listitem: ℹ Maintain neutral spine
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/watch?v=J0bEKhnP-Mw
+  - img
+  - text: Open in YouTube
+- checkbox "Nordic Curls 5 total ℹ 3 with hips extended ℹ 2 with slight bend ℹ Follow with cat-cow stretch"
+- heading "Nordic Curls" [level=4]
+- paragraph: 5 total
+- list:
+  - listitem: ℹ 3 with hips extended
+  - listitem: ℹ 2 with slight bend
+  - listitem: ℹ Follow with cat-cow stretch
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/watch?v=Wo746janD2E
+  - img
+  - text: Open in YouTube
+- checkbox "Rotational Press 2 sets x 5-8 reps ℹ Focus on smooth movement ℹ Full hip rotation ℹ Moderate weight"
+- heading "Rotational Press" [level=4]
+- paragraph: 2 sets x 5-8 reps
+- list:
+  - listitem: ℹ Focus on smooth movement
+  - listitem: ℹ Full hip rotation
+  - listitem: ℹ Moderate weight
+- link "Open in YouTube":
+  - /url: https://www.youtube.com/watch?v=bZRXZZXOEdQ
+  - img
+  - text: Open in YouTube
+- text: Conditioning
+- checkbox "bike ℹ 8-minute bike for max distance ℹ Maintain posture throughout ℹ Reduce intensity if form breaks"
+- heading "bike" [level=4]
+- list:
+  - listitem: ℹ 8-minute bike for max distance
+  - listitem: ℹ Maintain posture throughout
+  - listitem: ℹ Reduce intensity if form breaks
+- button [disabled]:
+  - img
+- 'heading "Day 2: Upper Body" [level=2]'
+- img
+- text: 0% completed
+- button [disabled]:
+  - img
+- 'heading "Day 3: Full Body" [level=2]'
+- img
+- text: 0% completed
+```

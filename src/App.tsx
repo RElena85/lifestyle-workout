@@ -7,6 +7,14 @@ import React from 'react';
 function App() {
   const { t } = useTranslation();
 
+  // Dynamically get day keys from translations
+  const getDayKeys = (): string[] => {
+    const daysObj = t('workout.days', { returnObjects: true }) as Record<string, any>;
+    return Object.keys(daysObj);
+  };
+
+  const dayKeys = getDayKeys();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
       {/* Updated header with ButtonBar */}
@@ -24,9 +32,9 @@ function App() {
           </blockquote>
         </div>
         <div className="space-y-8">
-          <WorkoutDay dayKey="day1" />
-          <WorkoutDay dayKey="day2" />
-          <WorkoutDay dayKey="day3" />
+          {dayKeys.map((dayKey) => (
+            <WorkoutDay key={dayKey} dayKey={dayKey} />
+          ))}
         </div>
       </div>
     </div>

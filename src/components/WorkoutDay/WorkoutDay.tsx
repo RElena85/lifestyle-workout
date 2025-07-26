@@ -16,7 +16,15 @@ export interface WorkoutDayProps {
   onOpenNextDay?: (dayKey: string) => void;
 }
 
+// Helper function to check if this is the first day
+const isFirstDay = (dayKey: string): boolean => {
+  const dayNumber = parseInt(dayKey.replace(/\D/g, ''), 10);
+  return dayNumber === 1;
+};
+
+//Figure out how this class is called 2 times each
 export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey, onOpenNextDay }) => {
+  console.log(`totalExercises dayKey ${dayKey} onOpenNextDay()`);
   const { t } = useTranslation();
   const [completedExercises, setCompletedExercises] = useState<Set<string>>(new Set());
   const [isLocked, setIsLocked] = useState(true);
@@ -26,7 +34,9 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey, onOpenNextDay })
 
   const sections = t(`workout.days.${dayKey}.sections`, { returnObjects: true }) as Record<string, any>;
   const totalExercises = getTotalExercises(sections);
+  console.log(`totalExercises dayKey ${dayKey} totalExercises ${totalExercises}`);
   const progress = calculateProgress(completedExercises.size, totalExercises);
+  console.log(`totalExercises progress ${progress} completedExercises ${completedExercises.size}`);
 
   useEffect(() => {
     // Recalculate the locked state on mount
@@ -34,7 +44,8 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey, onOpenNextDay })
     console.log(`Day ${dayKey} locked:`, locked);
     setIsLocked(locked);
     
-    if (!locked && dayKey === 'day1' && !localStorage.getItem(`${dayKey}_started`)) {
+    // Auto-open the first day if it's unlocked and hasn't been started yet
+    if (!locked && isFirstDay(dayKey) && !localStorage.getItem(`${dayKey}_started`)) {
       setIsOpen(true);
       localStorage.setItem(`${dayKey}_started`, 'true');
     }
@@ -69,11 +80,14 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey, onOpenNextDay })
 
   const handleExerciseToggle = (sectionKey: string, exerciseKey: string) => {
     const exerciseId = `${sectionKey}_${exerciseKey}`;
+    console.log(`exerciseID ${exerciseId}`);  
     if (workoutStarted && exerciseId !== currentExercise) return;
   
+    console.log(`completedExercises ${completedExercises}`);  
     const newCompletedExercises = new Set(completedExercises);
     if (newCompletedExercises.has(exerciseId)) return;
     
+    console.log(`Add the new exercise`);  
     newCompletedExercises.add(exerciseId);
     setCompletedExercises(newCompletedExercises);
     saveExercises(dayKey, newCompletedExercises);
@@ -82,8 +96,10 @@ export const WorkoutDay: React.FC<WorkoutDayProps> = ({ dayKey, onOpenNextDay })
   
   // Function to manually toggle the open/closed state
   const toggleOpen = () => {
-    if (isLocked) return;    
-    setIsOpen(true);
+    console.log(`Day ${dayKey} is locked ${isLocked} is open ${isOpen}. Completed ${completedExercises.size} out of ${totalExercises}`);
+    if (isLocked) return;
+    console.log(`is open ${isOpen} will be !isopen ${!isOpen}.`);  
+    setIsOpen(!isOpen);
   };
 
   return (

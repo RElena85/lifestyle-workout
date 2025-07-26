@@ -4,56 +4,45 @@ import { useTranslation } from 'react-i18next';
 import { standardButtonStyles } from '../ButtonsBar/standardButtonStyles';
 import { Button } from '../ui/button';
 
-/**
- * Returns whether the workout should be considered active
- * by checking if the "workoutInProgress" flag is true or if any of the day started flags exist.
- */
-const getWorkoutActiveStatus = (): boolean => {
-  return (
-    localStorage.getItem('workoutInProgress') === 'true' ||
-    localStorage.getItem('day1_started') === 'true' ||
-    localStorage.getItem('day2_started') === 'true' ||
-    localStorage.getItem('day3_started') === 'true'
-  );
+const getDayKeys = (t: (key: string, opts?: any) => any): string[] => {
+    // Retrieve the days object from the translation files (e.g., "workout.days")
+    const daysObj = t('workout.days', { returnObjects: true }) as Record<string, any>;
+    // Return an array of keys like ["day1", "day2", ...]
+    return Object.keys(daysObj);
 };
 
-/**
- * WorkoutController component with responsive design adjustments.
- * This component is optimized for adaptive and responsive rendering on smartphones.
- */
+const getWorkoutActiveStatus = (dayKeys: string[]): boolean => {
+  // Check a global flag or any day status from localStorage to determine if a workout is active.
+  if (localStorage.getItem('workoutInProgress') === 'true') {
+    return true;
+  }
+  // Check if any day has been started dynamically
+  return dayKeys.some((dayKey) => localStorage.getItem(`${dayKey}_started`) === 'true');
+};
+
 export const WorkoutController: React.FC = () => {
   const { t } = useTranslation();
-  
-  // Initialize state by checking multiple localStorage flags
-  const [isWorkoutActive, setIsWorkoutActive] = React.useState<boolean>(getWorkoutActiveStatus);
+  const dayKeys = getDayKeys(t);
+  const [isWorkoutActive, setIsWorkoutActive] = React.useState<boolean>(getWorkoutActiveStatus(dayKeys));
 
   const toggleWorkout = () => {
     if (isWorkoutActive) {
-      // Clear all workout related data from localStorage
+      // Deactivate workout
       localStorage.setItem('workoutInProgress', 'false');
 
-      // Clear day completion and start status
-      localStorage.removeItem('day1_started');
-      localStorage.removeItem('day1_completed');
-      localStorage.removeItem('day2_started');
-      localStorage.removeItem('day2_completed');
-      localStorage.removeItem('day3_started');
-      localStorage.removeItem('day3_completed');
-
-      // Clear exercises for each day
-      localStorage.removeItem('day1_exercises');
-      localStorage.removeItem('day2_exercises');
-      localStorage.removeItem('day3_exercises');
-
-      // Clear subactivities if they exist
-      localStorage.removeItem('day1_subactivities');
-      localStorage.removeItem('day2_subactivities');
-      localStorage.removeItem('day3_subactivities');
+      // Loop through all dynamic day keys to remove their related localStorage items
+      dayKeys.forEach((dayKey) => {
+        localStorage.removeItem(`${dayKey}_started`);
+        localStorage.removeItem(`${dayKey}_completed`);
+        localStorage.removeItem(`${dayKey}_exercises`);
+        localStorage.removeItem(`${dayKey}_subactivities`);
+      });
 
       setIsWorkoutActive(false);
-      // Reload window to reflect reset state; consider alternative SPA approaches if available.
+      // Reload page to reflect the reset state (consider SPA alternatives in the future)
       window.location.reload();
     } else {
+      // Start workout
       localStorage.setItem('workoutInProgress', 'true');
       setIsWorkoutActive(true);
     }
@@ -64,7 +53,6 @@ export const WorkoutController: React.FC = () => {
       <Button
         onClick={toggleWorkout}
         aria-label={t(isWorkoutActive ? 'workout.reset' : 'workout.start')}
-        // Responsive classes added: w-full for full width on smaller screens, flex for alignment, and spacing adjustments.
         className={`${standardButtonStyles} w-full flex items-center justify-center space-x-2 py-2 px-3 text-base sm:text-lg`}
       >
         {isWorkoutActive ? (
