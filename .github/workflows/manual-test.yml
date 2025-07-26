@@ -1,0 +1,95 @@
+name: Manual Test Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: 'Type of tests to run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+        - all
+        - unit
+        - e2e
+        - coverage-only
+      browser:
+        description: 'Browser for E2E tests'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+        - all
+        - chromium
+        - firefox
+        - webkit
+
+jobs:
+  manual-test:
+    name: Manual Test Execution
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter (always)
+        run: npm run lint
+
+      - name: Run unit tests with coverage
+        if: ${{ github.event.inputs.test_type == 'all' || github.event.inputs.test_type == 'unit' || github.event.inputs.test_type == 'coverage-only' }}
+        run: npm run test:coverage
+
+      - name: Install Playwright browsers
+        if: ${{ github.event.inputs.test_type == 'all' || github.event.inputs.test_type == 'e2e' }}
+        run: npx playwright install --with-deps
+
+      - name: Build application
+        if: ${{ github.event.inputs.test_type == 'all' || github.event.inputs.test_type == 'e2e' }}
+        run: npm run build
+
+      - name: Run Playwright tests (all browsers)
+        if: ${{ (github.event.inputs.test_type == 'all' || github.event.inputs.test_type == 'e2e') && github.event.inputs.browser == 'all' }}
+        run: npm run test
+
+      - name: Run Playwright tests (specific browser)
+        if: ${{ (github.event.inputs.test_type == 'all' || github.event.inputs.test_type == 'e2e') && github.event.inputs.browser != 'all' }}
+        run: npx playwright test --project=${{ github.event.inputs.browser }}
+
+      - name: Generate test summary
+        if: always()
+        run: |
+          echo "## 🧪 Manual Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "- **Test Type**: ${{ github.event.inputs.test_type }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Browser**: ${{ github.event.inputs.browser }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Coverage Requirement**: 90% minimum" >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: manual-test-results-${{ github.run_number }}
+          path: |
+            playwright-report/
+            coverage/
+            test-results/
+          retention-days: 30
+
+      - name: Clean up test artifacts
+        if: always()
+        run: |
+          echo "🧹 Cleaning up manual test artifacts..."
+          rm -rf test-results/
+          rm -rf playwright-report/
+          rm -rf coverage/
+          echo "✅ Manual test artifacts cleaned up"

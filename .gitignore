@@ -23,3 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 .qodo
+
+# Test results and reports
+test-results/
+playwright-report/
+coverage/
+*.lcov
+
+# Temporary test files
+.nyc_output

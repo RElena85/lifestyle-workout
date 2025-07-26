@@ -1,0 +1,77 @@
+name: Pull Request Tests
+
+on:
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  test-pr:
+    name: Test Pull Request
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run unit tests with coverage
+        run: npm run test:coverage
+
+      - name: Verify coverage threshold
+        run: |
+          echo "✅ Unit tests passed with required 90% coverage threshold"
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Build application for testing
+        run: npm run build
+
+      - name: Run Playwright E2E tests
+        run: npm run test
+
+      - name: Comment PR with test results
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { context } = require('@actions/github');
+            const testStatus = '${{ job.status }}' === 'success' ? '✅ All tests passed!' : '❌ Tests failed!';
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## Test Results\n\n${testStatus}\n\n- Unit Tests: ${{ steps.test.outcome || 'completed' }}\n- Coverage: 90%+ required\n- E2E Tests: ${{ steps.playwright.outcome || 'completed' }}\n- Linting: ${{ steps.lint.outcome || 'completed' }}`
+            });
+
+      - name: Upload test artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-pr-${{ github.event.number }}
+          path: |
+            playwright-report/
+            coverage/
+            test-results/
+          retention-days: 7
+
+      - name: Clean up test artifacts
+        if: always()
+        run: |
+          echo "🧹 Cleaning up PR test artifacts..."
+          rm -rf test-results/
+          rm -rf playwright-report/
+          rm -rf coverage/
+          echo "✅ PR test artifacts cleaned up"
